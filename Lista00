@@ -1,0 +1,171 @@
+//1. Escreva um programa que pergunte um valor em metros e imprima o
+//correspondente em decímetros, centímetros e milímetros.
+
+#include<stdio.h>
+
+int main()
+{
+int valorUsuario;
+
+printf ("Digite um valor (inteiro) em metros:");
+scanf("%d", &valorUsuario);
+printf("O valor digitado em metros é correspondente a %d em decímetros, %d em centímetros e %d em milímetros.", valorUsuario*10, valorUsuario*100, valorUsuario*1000);
+    return 0;
+}
+
+//2. Escreva um programa que imprime uma tabela com a tabuada de 1 a 9
+
+#include<stdio.h>
+
+int main()
+{
+int numUsuario, qntTabuada;
+
+printf("Digite um número que quer saber a tabuada:");
+scanf("%d", &numUsuario);
+printf("A sua tabuada vai até que número?");
+scanf("%d", &qntTabuada);
+for (int i = 1; i <= qntTabuada; i++) {
+    printf("%d * %d = %d\n", numUsuario, i, numUsuario*i);
+}
+
+    return 0;
+}
+
+//3. Escreva um programa que receba a velocidade máxima em uma avenida e a
+velocidade com que um motorista estava dirigindo nela. Calcule a multa que o
+motorista vai receber, considerando que são pagos R$5,00 por cada km/h que
+estiver acima da velocidade permitida (considere apenas números inteiros). Se
+a velocidade do motorista estiver dentro do limite, o programa deve informar
+que não há multa.
+
+#include<stdio.h>
+
+int main()
+{
+int velMaxima, velMotorista, multa;
+
+printf("Qual é a velocidade máxima permitida na avenida? (km/h)");
+scanf("%d", &velMaxima);
+printf("Qual a velocidade que o motorista estava alcançando? (km/h)");
+scanf("%d", &velMotorista);
+
+multa = (velMotorista - velMaxima) * 5;
+
+if (velMotorista > velMaxima)
+printf("O motorista ultrapassou a velocidade permitida! Pagará uma multa de R$%d,00", multa);
+else
+printf("Não há multa! O limite não foi ultrapassado.");
+
+    return 0;
+}
+
+//4. Escreva um programa para receber do usuário um mês (de 1 a 12) e um ano (de
+0 D.C. em diante) e mostrar o número de dias daquele mês daquele ano. Tente
+fazer usando switch/case.
+
+#include<stdio.h>
+
+int main()
+{
+int mesUsuario, anoUsuario;
+
+printf ("Digite o número de um dos meses do ano (1 a 12):");
+scanf("%d", &mesUsuario);
+printf ("Digite algum ano, de 0 d.C em diante:");
+scanf("%d", &anoUsuario);
+
+if(mesUsuario==2){
+    if(anoUsuario % 4 == 0 || anoUsuario % 400 == 0)
+    printf ("O mês digitado possui 29 dias (Ano Bissexto)");
+     else
+    printf ("O mês digitado possui 28 dias");
+}
+else if (mesUsuario == 4||mesUsuario == 6||mesUsuario == 9||mesUsuario == 11)
+printf ("O mês digitado possui 30 dias.");
+else
+printf ("O mês digitado possui 31 dias.");
+
+    return 0;
+}
+
+//5. Escreva um programa que calcule o salário semanal de um trabalhador. As
+entradas são o número de horas trabalhadas na semana e o valor da hora. Até
+40h/semana não se acrescenta nenhum adicional. Acima de 40h e até 60h há
+um bônus de 50% para essas horas. Acima de 60h há um bônus de 100% para
+essas horas.
+
+#include<stdio.h>
+
+int main()
+{
+float horasTrab, valorHora, valorBase;
+
+printf ("Qual foi a quantidade de horas trabalhadas na semana?");
+scanf("%f", &horasTrab);
+printf ("Quantos reais vale a hora? (Número inteiros)");
+scanf("%f", &valorHora);
+
+valorBase=horasTrab*valorHora;
+
+if (horasTrab <= 40)
+printf("O valor ganhado, ao final da semana, foi de R$%f,00", valorBase);
+if (horasTrab > 40){
+    if (horasTrab <= 60)
+    printf ("O Valor total teve um acréscimo de 50%, dando R$%.2f", (valorBase*0.5)+valorBase);
+    else
+     printf ("O Valor total teve um acréscimo de 100%, dando R$%.2f", valorBase*2);
+}
+   
+    return 0;
+}
+
+//6. Faça um programa para mostrar os 15 primeiros termos da série de Fibonacci
+
+#include<stdio.h>
+
+int main()
+{
+    int fibonacci [15];
+
+for (int i = 0; i <= 15; i++){
+    if (i < 2)
+    fibonacci[i] = i;
+    else
+    fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+    
+    printf("%d \n", fibonacci[i]);
+}
+    return 0;
+}
+
+//7. Escreva um programa que lê um inteiro positivo e verifica se ele contém o
+dígito 3 em qualquer posição.
+
+int main()
+{
+
+int numUsuario, contador=0;
+
+printf ("Digite um número inteiro positivo:");
+scanf("%d", &numUsuario);
+
+while (numUsuario > 0) {
+    if (numUsuario % 10 == 3) { //todo numero dividido por 10 tem como resto o seu ultimo digito
+        contador++;
+    }
+    numUsuario /= 10;
+}
+
+if (contador > 0) {
+    printf("O digito 3 aparece %d vez(es) no número digitado.", contador);;
+} else
+    printf ("Não existe dígito 3 no número digitado.");
+
+    return 0;
+}
+
+//8. Implementar a função inverte que recebe um número unsigned int como
+parâmetro e retorna este número escrito ao contrário. Ex: 431 <-> 134.
+
+
