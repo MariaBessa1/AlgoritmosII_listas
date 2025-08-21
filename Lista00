@@ -13,6 +13,8 @@ printf("O valor digitado em metros é correspondente a %d em decímetros, %d em 
     return 0;
 }
 
+----------------------------------------------------------------------------------------------------------------------------------------
+
 //2. Escreva um programa que imprime uma tabela com a tabuada de 1 a 9
 
 #include<stdio.h>
@@ -31,6 +33,8 @@ for (int i = 1; i <= qntTabuada; i++) {
 
     return 0;
 }
+
+---------------------------------------------------------------------------------------------------------------------------------------
 
 //3. Escreva um programa que receba a velocidade máxima em uma avenida e a
 velocidade com que um motorista estava dirigindo nela. Calcule a multa que o
@@ -60,6 +64,8 @@ printf("Não há multa! O limite não foi ultrapassado.");
     return 0;
 }
 
+--------------------------------------------------------------------------------------------------------------------------------------
+
 //4. Escreva um programa para receber do usuário um mês (de 1 a 12) e um ano (de
 0 D.C. em diante) e mostrar o número de dias daquele mês daquele ano. Tente
 fazer usando switch/case.
@@ -88,6 +94,8 @@ printf ("O mês digitado possui 31 dias.");
 
     return 0;
 }
+
+---------------------------------------------------------------------------------------------------------------------------------------
 
 //5. Escreva um programa que calcule o salário semanal de um trabalhador. As
 entradas são o número de horas trabalhadas na semana e o valor da hora. Até
@@ -120,6 +128,8 @@ if (horasTrab > 40){
     return 0;
 }
 
+---------------------------------------------------------------------------------------------------------------------------------------
+
 //6. Faça um programa para mostrar os 15 primeiros termos da série de Fibonacci
 
 #include<stdio.h>
@@ -138,6 +148,8 @@ for (int i = 0; i <= 15; i++){
 }
     return 0;
 }
+
+---------------------------------------------------------------------------------------------------------------------------------------
 
 //7. Escreva um programa que lê um inteiro positivo e verifica se ele contém o
 dígito 3 em qualquer posição.
@@ -165,7 +177,105 @@ if (contador > 0) {
     return 0;
 }
 
+---------------------------------------------------------------------------------------------------------------------------------------
+
 //8. Implementar a função inverte que recebe um número unsigned int como
 parâmetro e retorna este número escrito ao contrário. Ex: 431 <-> 134.
 
+unsigned int inverte (int n) {
+    int invertido = 0;
+       while (n > 0) {
+          invertido = 10 * invertido + n % 10;
+          n /= 10;
+       }
+ return invertido;   
+}
 
+int main() {
+int numNormal;
+    
+printf ("Digite um numero inteiro qualquer, e ele aparecerá invertido:");
+scanf ("%d", &numNormal);
+
+int inv = inverte (numNormal);   
+
+printf("%d", inv);
+
+    return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+//9. Faça uma função que recebe um array de inteiros e retorna qual o maior valor
+do array
+
+int maior (int v[], int n) {
+    int maiorValor = v[0];
+    for (int i = 1; i <= n; i++) {
+        if (v[i] > maiorValor) {
+            maiorValor = v[i];
+        }
+    }
+    return maiorValor;
+}
+
+int main (){
+    int posicoes;
+    
+    printf("Você quer criar um array de quantos numeros?");
+    scanf("%d", &posicoes);
+    int array[posicoes];
+    
+    for (int i = 1; i <= posicoes; i++) {
+        if (i == 0) {
+            printf("Digite um número para o array");
+            scanf("%d", &array[i]);
+        } else {
+            printf("Digite outro número para o array");
+            scanf("%d", &array[i]);
+        }
+    }
+    
+    int qualMaior = maior (array, posicoes);
+    
+    printf("O maior valor do array digitado é %d", qualMaior);
+     
+    return 0;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+//10. Faça uma função que recebe como parâmetro um array de 5 posições
+contendo as notas de um aluno ao longo do ano e devolve a média do aluno.
+
+int media (int v[], int n) {
+    int mediaN, soma = v[0];
+    for (int i = 1,; i < n; i++) {
+        soma+=v[i];
+    }
+    
+    mediaN = soma/n;
+   
+    return mediaN;
+    
+}
+
+int main (){
+    int v[5];
+    
+    for (int i = 0; i < 5; i++) {
+        if (i == 0) {
+            printf("Digite abaixo uma nota para calcular a média: ");
+            scanf("%d", &v[i]);
+        } else {
+            printf("Digite outra nota:");
+            scanf("%d", &v[i]);
+        }
+    }
+    
+    int mediaAno = media (v, 5);
+    
+    printf("A média anual das notas é %d", mediaAno);
+     
+    return 0;
+}
