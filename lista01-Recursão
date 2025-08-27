@@ -1,0 +1,109 @@
+//1. Escreva uma função que calcula o número fatorial de um número. Tente
+implementar a versão iterativa também.//
+
+-----------FATORIAL---------------
+
+int fatorial (int n) {
+
+if (n==0 || n==1)
+    return 1;
+else
+    return n * fatorial (n - 1);
+}
+
+int main (){
+    int numero;
+    
+    printf("Digite um número para eu lhe devolver seu fatorial");
+    scanf("%d", &numero);
+ 
+    int numFatorial = fatorial (numero);
+    
+    printf("O fatorial de %d é %d",numero, fatorial(numero));
+     
+    return 0;
+}
+
+---------------ITERATIVA--------------------
+
+int fatorial (int n) {
+int fat = 1;
+for (int i = n; i >= 1; i-- ) {
+    fat = fat * i;
+}
+    
+    return fat;
+}
+
+int main (){
+    int numero;
+    
+    printf("Digite um número para eu lhe devolver seu fatorial");
+    scanf("%d", &numero);
+ 
+    int numFatorial = fatorial (numero);
+    
+    printf("O fatorial de %d é %d",numero, numFatorial);
+     
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//2. Escreva uma função recursiva que calcula a potência de um número inteiro x
+elevado a um número inteiro y.
+
+int eleva (int x, int y) {
+ if (y == 0)
+    return 1;
+ else
+    return eleva (x,  y - 1) * x;
+}
+    
+int main (){
+    int base;
+    int expoente;
+    
+    printf("Vamos calcular uma potência! Digite uma base inteira:");
+    scanf("%d", &base);
+    printf("Digite o expoente inteiro:");
+    scanf("%d", &expoente);
+  
+    int potencia = eleva (base, expoente);
+    
+    printf("A potência de %d elevado a %d é: %d", base, expoente, potencia);
+    return 0;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//3. Escreva uma função recursiva que recebe um array de inteiros e retorna a
+soma dos elementos do array.
+
+int soma (int v[], int n) {
+ if (n == 1)
+    return v[0];
+ else
+    return v[n - 1] + soma(v, n - 1);
+}
+    
+int main (){
+    int posicoes;
+    
+    printf("Você quer criar um array de quantas posições?:");
+    scanf("%d", &posicoes);
+    int array [posicoes];
+    
+    for (int i = 0; i < posicoes; i++) {
+        printf("Digite um valor para o array:");
+        scanf("%d", &array[i]);
+    }
+  
+    int somaArray = soma (array, posicoes);
+    
+    printf("A soma dos arrays é: %d", somaArray);
+    return 0;
+}
+
+
+
+
