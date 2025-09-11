@@ -104,6 +104,38 @@ int main (){
     return 0;
 }
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Escreva uma função recursiva que recebe um array de inteiros e retorna o
+produto dos elementos do array.
 
+ 
 
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+
+int multiplica (int v[], int n) {
+    if (n==0);
+    return 1;
+    
+    int ultimoElem = v [n-1];
+    return ultimoElem * multiplica (v, n-1);
+    
+}
+int main()
+{
+    srand(time(NULL));
+    int v[10];
+    
+    for (int i = 0; i <= 9; i++) {
+        v[i] = rand () % 10 + 1;
+    }
+ 
+ multiplica (v[]);
+ 
+ printf ("%d", multiplicadoV);
+ 
+ 
+    return 0;
+}
 
