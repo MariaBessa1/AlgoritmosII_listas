@@ -3,27 +3,26 @@ implementar a versão iterativa também.//
 
 -----------FATORIAL---------------
 
-int fatorial (int n) {
-
-if (n==0 || n==1)
+int fatorial (int n){
+    if (n==1 || n==0)
     return 1;
-else
-    return n * fatorial (n - 1);
+    
+    else
+    return n * fatorial (n-1);
 }
 
-int main (){
-    int numero;
+int main () {
+    int numeroNormal;
+    printf("Digite um valor inteiro para saber seu fatorial: ");
+    scanf("%d", &numeroNormal);
     
-    printf("Digite um número para eu lhe devolver seu fatorial");
-    scanf("%d", &numero);
- 
-    int numFatorial = fatorial (numero);
+   int numeroFatorial = fatorial (numeroNormal);
     
-    printf("O fatorial de %d é %d",numero, fatorial(numero));
-     
-    return 0;
-}
+    printf("O fatorial do número é: %d", numeroFatorial);
 
+  return 0;
+        
+}
 ---------------ITERATIVA--------------------
 
 int fatorial (int n) {
@@ -105,17 +104,15 @@ int main (){
 }
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-4. Escreva uma função recursiva que recebe um array de inteiros e retorna o
+//4. Escreva uma função recursiva que recebe um array de inteiros e retorna o
 produto dos elementos do array.
-
- 
 
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
 
 int multiplica (int v[], int n) {
-    if (n==0);
+    if (n==0)
     return 1;
     
     int ultimoElem = v [n-1];
@@ -131,11 +128,48 @@ int main()
         v[i] = rand () % 10 + 1;
     }
  
- multiplica (v[]);
+ int multiplicadoV = multiplica (v, 10);
  
- printf ("%d", multiplicadoV);
- 
- 
+ printf("Os valores sorteados foram: \n");
+ for (int i = 0; i <= 9; i++) {
+    printf("%d ", v[i]);
+ }
+
+ printf ("\nO produto de todos os valores sorteados é: %d", multiplicadoV);
+
     return 0;
 }
 
+---------------------------------------------------------------------------------------------------------------------------------------
+//5. Escreva a função para cálculo do n-ésimo termo da sequência de Collatz
+utilizando recursividade.
+
+int collatz (int n, int p) {
+    if (p==1)
+    return n;
+    
+    if (n % 2 == 0)
+    return collatz (n/2, p - 1);
+    
+    else
+    return collatz (3*n + 1, p - 1);
+    
+}
+
+int main (){
+    int numero, posicao;
+    printf ("Digite um valor para aplicarmos a sequência de Collatz: ");
+    scanf ("%d", &numero);
+    printf ("Digite agora uma posição da sequência para ver o valor: ");
+    scanf ("%d", &posicao);
+    
+    int seqCollatz = collatz (numero, posicao);
+    
+    printf ("o valor da posição %d na sequência de Collatz de %d é: %d", posicao, numero, seqCollatz);
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+6. Escreva uma função recursiva que determine quantas vezes um dígito K ocorre
+em um número natural N. Por exemplo, o dígito 2 ocorre 3 vezes em
+762021192.
