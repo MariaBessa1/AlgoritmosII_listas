@@ -160,7 +160,7 @@ int main (){
     int numero, posicao;
     printf ("Digite um valor para aplicarmos a sequência de Collatz: ");
     scanf ("%d", &numero);
-    printf ("Digite agora uma posição da sequência para ver o valor: ");
+    printf ("Digite agora uma posição da sequência gerada para ver o valor: ");
     scanf ("%d", &posicao);
     
     int seqCollatz = collatz (numero, posicao);
