@@ -1,0 +1,161 @@
+-----------------------------------------------------SOMA----------------------------------------------------------------
+
+//Soma sequencial de N números (sem vetor) -----------------------
+
+int soma (int n) 
+{
+if (n <= 1) 
+   return n;
+else
+   return n + soma (n-1);
+}
+
+//Soma de números digitados pelo usuário (sem vetor) ------------------------
+
+int soma (int quantidade) 
+{
+if (quantidade == 0)
+   return 0;
+else {
+ int numeros;
+ printf ("Digite um número para a soma: ");
+ scanf ("%d", &numeros);
+  return numeros + soma (quantidade - 1);
+}
+}
+
+//Soma com vetores (n = tamanho) ----------------------------
+
+int soma (int v [], int n)
+{
+if (n == 0) //vazio
+   return 0; 
+else {
+   return v[n-1] + soma (v, n-1);
+}
+}
+
+int main()
+{
+int tamanhoVetor;
+
+printf("Digite um tamanho para o vetor: ");
+scanf("%d", &tamanhoVetor);
+
+int v[tamanhoVetor];
+
+for (int i = 0; i < tamanhoVetor; i++) {
+printf("Digite um valor para o vetor: ");
+scanf("%d", &v[i]);
+}
+
+int somaVetor = soma (v, tamanhoVetor);
+
+printf("%d", somaVetor);
+
+    return 0;
+}
+
+-----------------------------------------------------MULTIPLICAÇÂO----------------------------------------------------------------
+
+//Multiplicação sequencial de N números (sem vetor) ----------------------
+
+int multiplica (int n) 
+{
+if (n <= 1) 
+   return n;
+else
+   return n * multiplica (n-1);
+}
+
+
+//Multiplicação de números digitados pelo usuário (sem vetor) -------------------------
+
+int multiplica (int quantidade) 
+{
+if (quantidade == 0)
+   return 1; //valor neutro da multiplicação
+else {
+ int numeros;
+ printf ("Digite um número para a multiplicação: ");
+ scanf ("%d", &numeros);
+  return numeros * multiplica (quantidade - 1);
+}
+}
+
+//Multiplicação com vetores (n = tamanho) ---------------------------
+
+int multiplica (int v [], int n)
+{
+if (n == 0) //vazio
+   return 1; 
+else {
+   return v[n-1] * multiplica (v, n-1);
+}
+}
+
+int main()
+{
+int tamanhoVetor;
+
+printf("Digite um tamanho para o vetor: ");
+scanf("%d", &tamanhoVetor);
+
+int v[tamanhoVetor];
+
+for (int i = 0; i < tamanhoVetor; i++) {
+printf("Digite um valor para o vetor: ");
+scanf("%d", &v[i]);
+}
+
+int multiVetor = multiplica (v, tamanhoVetor);
+
+printf("%d", multiVetor);
+
+    return 0;
+}
+
+-----------------------------------------------------FATORIAL----------------------------------------------------------------
+
+//Fatorial recursivo -----------------------
+
+int fatorial (int n) 
+{
+if (n <= 1)
+   return 1;
+else
+   return n * fatorial (n-1);
+
+//Fatorial Iterativo -----------------------
+
+int fatorial (int n)
+{
+int produto = 1;
+for (int i = n; i >= 1; i--){
+   produto *= i;
+]
+return produto;
+
+-----------------------------------------------------FIBONACCI----------------------------------------------------------------
+
+//Fibonacci recursivo -----------------------
+
+int fibo (int n) // n é a posição. Função para saber qual o valor em determinada posição seguindo a sequência de Fibonacci. 
+{
+if (n <= 1)
+   return n;
+else 
+   return fibo (n-1) + fibo (n-2);
+
+-----------------------------------------------------POTÊNCIA----------------------------------------------------------------
+
+//Potência recursiva ------------------------
+
+int eleva (int base, int expoente)
+{
+if (expoente == 0)
+   return 1;
+else 
+   return base * potência (base, expoente - 1)
+}
+
