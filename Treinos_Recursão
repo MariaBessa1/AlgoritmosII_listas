@@ -159,3 +159,18 @@ else
    return base * potência (base, expoente - 1)
 }
 
+-----------------------------------------------------BUSCA BINÁRIA----------------------------------------------------------------
+
+int buscaB (int v[], n, int left, int right) 
+{
+int media = (left * right) / 2;
+
+if ( v[media] == n)
+   return media;
+if (v[media] < n)
+   left = media + 1;
+else
+   right = media - 1;
+
+return buscaB (v, n, left, right);
+
