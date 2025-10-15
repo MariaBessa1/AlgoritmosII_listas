@@ -1,0 +1,192 @@
+// 1) Implemente os algoritmos Bubble e InsertionSort de forma a imprimir o estado
+// do array a cada interação. Faça os testes com os arrays anteriores, e compare
+// as respostas com o passo a passo que você desenhou.
+
+-----------------------------------BUBBLESORT-----------------------------------------
+
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+
+void bubblesort (int v[], int n) {
+   int temp, trocou;
+   
+   for (int i = 0; i < n-1; i++) {
+       trocou = 0;
+       
+       for (int j = 0; j < n-i-1; j++) {
+           if (v[j] > v[j+1]) {
+               temp = v[j];
+               v[j] = v[j+1];
+               v[j+1] = temp;
+               trocou = 1;
+           }
+       }
+    printf("\nApós a %d passagem:", i + 1);
+    for (int k = 0; k < n; k++) { //O K vai percorrendo cada posição
+    //do vetor v[] a cada passagem pelo for "de fora", que determina cada etapa de ordenação;
+       printf ("%d,", v[k]);
+   }
+   printf ("\n");
+   
+       if (trocou==0) {
+           break;
+       }
+   }   
+}
+int main()
+{
+    srand(time(NULL));
+    int v[10];
+    
+    printf("O vetor sorteado foi: ");
+    for (int i = 0; i <= 9; i++) {
+        v[i] = rand () % 10 + 1;
+        printf("%d, ", v[i]);
+    }
+    
+ bubblesort (v, 10);
+    return 0;
+}
+
+-----------------------------------INSERTIONSORT-----------------------------------------
+
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
+
+void insertionSort(int v[], int n)
+{
+int i, chave, j;
+     for (i = 1; i < n; i++) {
+        chave = v[i];
+        j = i - 1;
+   
+    printf ("\nApós a %d passagem: \n", i);
+     for (int k = 0; k < n; k++) {
+        printf ("%d, ", v[k]);
+    }
+  
+        while (j >= 0 && v[j] > chave) {
+            v[j + 1] = v[j];
+            j = j - 1;
+        }
+        v[j + 1] = chave;
+      }
+} 
+int main()
+{
+    srand(time(NULL));
+    int v[10];
+    
+    printf("O vetor sorteado foi: ");
+    for (int i = 0; i <= 9; i++) {
+        v[i] = rand () % 10 + 1;
+        printf("%d, ", v[i]);
+    }
+    
+ insertionSort (v, 10);
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+// 2) Como seria para alterar os algoritmos de forma que as ordenações sejam
+// decrescentes?
+
+-----------------------------------BUBBLESORT-----------------------------------------
+
+void bubblesort (int v[], int n) {
+   int temp, trocou;
+   
+   for (int i = 0; i < n-1; i++) {
+       trocou = 0;
+       
+       for (int j = 0; j < n-i-1; j++) {
+           if (v[j] < v[j+1]) { //ALTERAÇÃO NO ">"
+               temp = v[j];
+               v[j] = v[j+1];
+               v[j+1] = temp;
+               trocou = 1;
+           }
+       }
+    printf("\nApós a %d passagem:", i + 1);
+    for (int k = 0; k < n; k++) { 
+       printf ("%d,", v[k]);
+   }
+   printf ("\n");
+   
+       if (trocou==0) {
+           break;
+       }
+   }   
+}
+int main()
+{
+    srand(time(NULL));
+    int v[10];
+    
+    printf("O vetor sorteado foi: ");
+    for (int i = 0; i <= 9; i++) {
+        v[i] = rand () % 10 + 1;
+        printf("%d, ", v[i]);
+    }
+    
+ bubblesort (v, 10);
+    return 0;
+}
+
+-----------------------------------INSERTIONSORT-----------------------------------------
+
+void insertionSort(int v[], int n)
+{
+int i, chave, j;
+     for (i = 1; i < n; i++) {
+        chave = v[i];
+        j = i - 1;
+    
+        while (j >= 0 && v[j] < chave) { //ALTERAÇÃO NO ">" DA CHAVE
+            v[j + 1] = v[j];
+            j = j - 1;
+        }
+        v[j + 1] = chave;
+      }
+      
+      printf("Vetor ordenado: ");
+      for (int k = 0; k < n; k++) {
+          printf("%d, ", v[k]);
+      }
+} 
+int main()
+{
+    srand(time(NULL));
+    int v[10];
+    
+    printf("O vetor sorteado foi: ");
+    for (int i = 0; i <= 9; i++) {
+        v[i] = rand () % 10 + 1;
+        printf("%d, ", v[i]);
+    }
+    
+ insertionSort (v, 10);
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+// 3) É possível escrever o BubbleSort recursivo? Se sim, escreva.
+
+
+void bubblesort (int v[], int n) {
+   
+   if (n==1) { //um vetor com 1 elemento ja esta ordenado
+   return;
+   }
+       for (int i = 0; i < n-1; i++) {
+           if (v[i] > v[i+1]) { 
+               temp = v[i];
+               v[i] = v[i+1];
+               v[i+1] = temp;
+           }
+       }
+    bubblesort (v, n-1);
+}
